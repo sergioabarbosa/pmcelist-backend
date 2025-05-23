@@ -8,26 +8,47 @@ const sectorRoutes = require('./routes/sectorRoutes');
 
 dotenv.config();
 
+// Connect to database
 connectDB();
 
 const app = express();
 
-app.use(cors());
+// CORS configuration with allowed origins
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'https://pmcelist-frontend.vercel.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+// Apply CORS with options
+app.use(cors(corsOptions));
 app.use(express.json());
 
+// Routes
 app.get('/', (req, res) => {
-  res.send('API is running...');
+  res.send('PMCE API is running...');
 });
 
 app.use('/api/users', userRoutes);
 app.use('/api/sectors', sectorRoutes);
 
+// Error handling middleware
 app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(
-  PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
-);
+// Only listen on a port when not running on Vercel
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(
+    PORT,
+    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+  );
+}
+
+// Export the Express API for Vercel
+module.exports = app;
