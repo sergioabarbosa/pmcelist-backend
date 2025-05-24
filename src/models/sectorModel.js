@@ -1,5 +1,25 @@
 const mongoose = require('mongoose');
 
+const subitemSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: false,
+    },
+    phone: {
+      type: String,
+      required: false,
+    }
+  },
+  {
+    _id: false
+  }
+);
+
 const sectorSchema = mongoose.Schema(
   {
     name: {
@@ -12,20 +32,21 @@ const sectorSchema = mongoose.Schema(
     },
     company: {
       type: String,
-      required: true,
+      required: false,
     },
     commander: {
       type: String,
-      required: true,
+      required: false,
     },
     phone: {
       type: String,
-      required: true,
+      required: false,
     },
     ais: {
       type: String,
-      required: true,
+      required: false,
     },
+    subitems: [subitemSchema]
   },
   {
     timestamps: true,

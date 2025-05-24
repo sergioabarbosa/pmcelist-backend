@@ -11,197 +11,396 @@ console.log('Connecting to database...');
 connectDB();
 
 const pmceStructure = [
-  // DIREÇÃO SUPERIOR
+  // COMANDO GERAL
   {
-    name: 'Comandante-Geral',
-    battalion: 'Direção Superior',
+    name: 'Comando-Geral da PMCE',
+    battalion: 'Comando Superior',
     company: 'N/A',
-    commander: 'Coronel Silva',
-    phone: '(85) 3101-1234',
-    ais: 'AIS-01',
-  },
-  // GERÊNCIA SUPERIOR
-  {
-    name: 'Subcomandante-Geral',
-    battalion: 'Gerência Superior',
-    company: 'N/A',
-    commander: 'Coronel Oliveira',
-    phone: '(85) 3101-2345',
-    ais: 'AIS-02',
+    commander: 'Coronel Klênio Savyo Nascimento de Sousa',
+    phone: '(85) 3101-2500',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Gabinete do Comando-Geral', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2500' },
+      { name: 'Assessoria de Comunicação', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2503' }
+    ]
   },
   {
-    name: 'Diretoria de Planejamento e Gestão Interna',
-    battalion: 'Gerência Superior',
+    name: 'Subcomando-Geral da PMCE',
+    battalion: 'Comando Superior',
     company: 'N/A',
-    commander: 'Coronel Rodrigues',
-    phone: '(85) 3101-3456',
-    ais: 'AIS-03',
+    commander: 'Coronel José Durval Beserra Filho',
+    phone: '(85) 3101-2510',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Gabinete do Subcomando', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2511' }
+    ]
+  },
+  
+  // ÓRGÃOS DE DIREÇÃO ESTRATÉGICA
+  {
+    name: 'Estado-Maior Geral',
+    battalion: 'Órgãos de Direção Estratégica',
+    company: 'N/A',
+    commander: 'Coronel Márcio de Oliveira Macêdo',
+    phone: '(85) 3101-2520',
+    ais: 'N/A',
+    subitems: [
+      { name: '1ª Seção - Pessoal e Legislação', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2521' },
+      { name: '2ª Seção - Inteligência', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2522' },
+      { name: '3ª Seção - Operações e Ensino', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2523' },
+      { name: '4ª Seção - Logística', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2524' },
+      { name: '5ª Seção - Comunicação Social', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2525' },
+      { name: '6ª Seção - Orçamento e Finanças', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2526' }
+    ]
   },
   {
-    name: 'Diretoria de Planejamento e Gestão Operacional',
-    battalion: 'Gerência Superior',
+    name: 'Corregedoria Geral dos Órgãos de Segurança',
+    battalion: 'Órgãos de Direção Estratégica',
     company: 'N/A',
-    commander: 'Coronel Ferreira',
-    phone: '(85) 3101-4567',
-    ais: 'AIS-04',
+    commander: 'Coronel Rodrigo Brandão Prado',
+    phone: '(85) 3101-6100',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Coordenadoria de Disciplina Militar', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-6101' },
+      { name: 'Coordenadoria de Inspeção Administrativa', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-6102' }
+    ]
   },
-  // ÓRGÃOS DE ASSESSORAMENTO
+  
+  // ÓRGÃOS DE APOIO
   {
-    name: 'Assessoria do Gabinete do Comando-Geral',
-    battalion: 'Órgãos de Assessoramento',
+    name: 'Diretoria de Gestão de Pessoal',
+    battalion: 'Órgãos de Apoio',
     company: 'N/A',
-    commander: 'Tenente-Coronel Santos',
-    phone: '(85) 3101-5678',
-    ais: 'AIS-05',
-  },
-  {
-    name: 'Assessoria Jurídica',
-    battalion: 'Órgãos de Assessoramento',
-    company: 'N/A',
-    commander: 'Tenente-Coronel Lima',
-    phone: '(85) 3101-6789',
-    ais: 'AIS-06',
-  },
-  {
-    name: 'Assessoria de Comunicação',
-    battalion: 'Órgãos de Assessoramento',
-    company: 'N/A',
-    commander: 'Major Costa',
-    phone: '(85) 3101-7890',
-    ais: 'AIS-07',
+    commander: 'Coronel Francisco Erivano Gomes de Sousa',
+    phone: '(85) 3101-2530',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Célula de Administração de Pessoal', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2531' },
+      { name: 'Célula de Pagamento', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2532' }
+    ]
   },
   {
-    name: 'Assessoria de Inteligência Policial Militar',
-    battalion: 'Órgãos de Assessoramento',
+    name: 'Diretoria de Ensino e Instrução',
+    battalion: 'Órgãos de Apoio',
     company: 'N/A',
-    commander: 'Tenente-Coronel Almeida',
-    phone: '(85) 3101-8901',
-    ais: 'AIS-08',
+    commander: 'Coronel Antônio Clairton Pessoa de Lima',
+    phone: '(85) 3101-4800',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Academia Estadual de Segurança Pública (AESP)', address: 'Av. Presidente Costa e Silva, 1251 - Mondubim, Fortaleza-CE', phone: '(85) 3101-7300' },
+      { name: 'Célula de Formação Continuada', address: 'Av. Presidente Costa e Silva, 1251 - Mondubim, Fortaleza-CE', phone: '(85) 3101-7301' }
+    ]
   },
   {
-    name: 'Assessoria de Controle Interno',
-    battalion: 'Órgãos de Assessoramento',
+    name: 'Diretoria de Saúde e Assistência Social',
+    battalion: 'Órgãos de Apoio',
     company: 'N/A',
-    commander: 'Major Pereira',
-    phone: '(85) 3101-9012',
-    ais: 'AIS-09',
+    commander: 'Coronel Médico José Sarto Nogueira Moreira',
+    phone: '(85) 3101-2540',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Hospital da Polícia Militar', address: 'Av. Jovita Feitosa, 1666 - Parquelândia, Fortaleza-CE', phone: '(85) 3101-5325' },
+      { name: 'Centro de Assistência Social', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2542' }
+    ]
   },
   {
-    name: 'Ouvidoria',
-    battalion: 'Órgãos de Assessoramento',
+    name: 'Diretoria de Logística e Patrimônio',
+    battalion: 'Órgãos de Apoio',
     company: 'N/A',
-    commander: 'Major Souza',
-    phone: '(85) 3101-0123',
-    ais: 'AIS-10',
-  },
-  // ÓRGÃOS DE EXECUÇÃO PROGRAMÁTICA - Coordenadoria de Operações
-  {
-    name: 'Coordenadoria de Operações',
-    battalion: 'Órgãos de Execução Programática',
-    company: 'N/A',
-    commander: 'Coronel Martins',
-    phone: '(85) 3102-1234',
-    ais: 'AIS-11',
+    commander: 'Coronel Hélio Nogueira Bernardino',
+    phone: '(85) 3101-2550',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Célula de Material Bélico', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2551' },
+      { name: 'Célula de Transportes', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2552' }
+    ]
   },
   {
-    name: 'Célula de Planejamento',
-    battalion: 'Coordenadoria de Operações',
+    name: 'Diretoria de Finanças',
+    battalion: 'Órgãos de Apoio',
     company: 'N/A',
-    commander: 'Tenente-Coronel Gomes',
-    phone: '(85) 3102-2345',
-    ais: 'AIS-12',
+    commander: 'Coronel Marcos Aurélio Santos da Silva',
+    phone: '(85) 3101-2560',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Célula de Execução Orçamentária', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2561' },
+      { name: 'Célula de Prestação de Contas', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2562' }
+    ]
   },
-  // 1º CRPM - Capital Oeste
   {
-    name: '1º Comando Regional de Polícia Militar',
-    battalion: '1º CRPM - Capital Oeste',
+    name: 'Diretoria de Tecnologia da Informação e Comunicação',
+    battalion: 'Órgãos de Apoio',
     company: 'N/A',
-    commander: 'Coronel Ribeiro',
-    phone: '(85) 3103-1234',
-    ais: 'AIS-13',
+    commander: 'Coronel Francisco Ronaldo Fernandes Cavalcante',
+    phone: '(85) 3101-2570',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Célula de Desenvolvimento de Sistemas', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2571' },
+      { name: 'Célula de Telecomunicações', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2572' }
+    ]
+  },
+  
+  // ÓRGÃOS DE EXECUÇÃO OPERACIONAL
+  {
+    name: 'Comando de Policiamento da Capital (CPC)',
+    battalion: 'Órgãos de Execução Operacional',
+    company: 'N/A',
+    commander: 'Coronel Antônio Aginaldo de Oliveira',
+    phone: '(85) 3101-2600',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Coordenadoria de Planejamento Operacional', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-2601' }
+    ]
+  },
+  {
+    name: '1º Batalhão de Polícia Militar',
+    battalion: 'CPC',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Cláudio Roberto de Araújo Lima',
+    phone: '(85) 3101-2730',
+    ais: 'AIS 01 - Centro',
+    subitems: [
+      { name: '1ª Companhia do 1º BPM', address: 'Av. do Imperador, 255 - Centro, Fortaleza-CE', phone: '(85) 3101-2731' },
+      { name: '2ª Companhia do 1º BPM', address: 'Av. do Imperador, 255 - Centro, Fortaleza-CE', phone: '(85) 3101-2732' }
+    ]
+  },
+  {
+    name: '2º Batalhão de Polícia Militar',
+    battalion: 'CPC',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Ivson Correia Timbó',
+    phone: '(85) 3101-2740',
+    ais: 'AIS 02 - Aldeota',
+    subitems: [
+      { name: '1ª Companhia do 2º BPM', address: 'Av. Desembargador Moreira, 2875 - Dionísio Torres, Fortaleza-CE', phone: '(85) 3101-2741' },
+      { name: '2ª Companhia do 2º BPM', address: 'Av. Desembargador Moreira, 2875 - Dionísio Torres, Fortaleza-CE', phone: '(85) 3101-2742' }
+    ]
   },
   {
     name: '5º Batalhão de Polícia Militar',
-    battalion: '1º CRPM - Capital Oeste',
+    battalion: 'CPC',
     company: 'N/A',
-    commander: 'Tenente-Coronel Carvalho',
-    phone: '(85) 3103-2345',
-    ais: 'AIS-14',
-  },
-  {
-    name: '1ª Companhia do 5º BPM',
-    battalion: '5º BPM',
-    company: '1ª Companhia',
-    commander: 'Capitão Mendes',
-    phone: '(85) 3103-3456',
-    ais: 'AIS-15',
-  },
-  {
-    name: '2ª Companhia do 5º BPM',
-    battalion: '5º BPM',
-    company: '2ª Companhia',
-    commander: 'Capitão Barros',
-    phone: '(85) 3103-4567',
-    ais: 'AIS-16',
-  },
-  {
-    name: '3ª Companhia do 5º BPM',
-    battalion: '5º BPM',
-    company: '3ª Companhia',
-    commander: 'Capitão Freitas',
-    phone: '(85) 3103-5678',
-    ais: 'AIS-17',
-  },
-  // 5º CRPM - Capital Leste
-  {
-    name: '5º Comando Regional de Polícia Militar',
-    battalion: '5º CRPM - Capital Leste',
-    company: 'N/A',
-    commander: 'Coronel Nascimento',
-    phone: '(85) 3104-1234',
-    ais: 'AIS-18',
+    commander: 'Tenente-Coronel Régis Alves Pinheiro',
+    phone: '(85) 3101-2750',
+    ais: 'AIS 05 - Conjunto Ceará',
+    subitems: [
+      { name: '1ª Companhia do 5º BPM', address: 'Av. H, s/n - Conjunto Ceará, Fortaleza-CE', phone: '(85) 3101-2751' },
+      { name: '2ª Companhia do 5º BPM', address: 'Av. H, s/n - Conjunto Ceará, Fortaleza-CE', phone: '(85) 3101-2752' }
+    ]
   },
   {
     name: '6º Batalhão de Polícia Militar',
-    battalion: '5º CRPM - Capital Leste',
+    battalion: 'CPC',
     company: 'N/A',
-    commander: 'Tenente-Coronel Pinto',
-    phone: '(85) 3104-2345',
-    ais: 'AIS-19',
+    commander: 'Tenente-Coronel Assis Souza da Silva',
+    phone: '(85) 3101-2760',
+    ais: 'AIS 06 - Messejana',
+    subitems: [
+      { name: '1ª Companhia do 6º BPM', address: 'Av. Jornalista Tomaz Coelho, 209 - Messejana, Fortaleza-CE', phone: '(85) 3101-2761' },
+      { name: '2ª Companhia do 6º BPM', address: 'Av. Jornalista Tomaz Coelho, 209 - Messejana, Fortaleza-CE', phone: '(85) 3101-2762' }
+    ]
   },
-  // CPE - Comando de Policiamento Especializado
   {
-    name: 'Comando de Policiamento Especializado',
-    battalion: 'CPE',
+    name: '8º Batalhão de Polícia Militar',
+    battalion: 'CPC',
     company: 'N/A',
-    commander: 'Coronel Moreira',
-    phone: '(85) 3105-1234',
-    ais: 'AIS-20',
+    commander: 'Tenente-Coronel Marcos Aurélio Castelo Branco',
+    phone: '(85) 3101-2770',
+    ais: 'AIS 08 - Antônio Bezerra',
+    subitems: [
+      { name: '1ª Companhia do 8º BPM', address: 'Rua Júlio Braga, s/n - Antônio Bezerra, Fortaleza-CE', phone: '(85) 3101-2771' },
+      { name: '2ª Companhia do 8º BPM', address: 'Rua Júlio Braga, s/n - Antônio Bezerra, Fortaleza-CE', phone: '(85) 3101-2772' }
+    ]
   },
   {
-    name: 'Batalhão de Polícia do Meio Ambiente',
-    battalion: 'CPE',
+    name: '16º Batalhão de Polícia Militar',
+    battalion: 'CPC',
     company: 'N/A',
-    commander: 'Tenente-Coronel Campos',
-    phone: '(85) 3105-2345',
-    ais: 'AIS-21',
+    commander: 'Tenente-Coronel Marcos Aurélio Pontes Feijão',
+    phone: '(85) 3101-2780',
+    ais: 'AIS 09 - Vicente Pinzón',
+    subitems: [
+      { name: '1ª Companhia do 16º BPM', address: 'Av. Vicente de Castro, s/n - Vicente Pinzón, Fortaleza-CE', phone: '(85) 3101-2781' },
+      { name: '2ª Companhia do 16º BPM', address: 'Av. Vicente de Castro, s/n - Vicente Pinzón, Fortaleza-CE', phone: '(85) 3101-2782' }
+    ]
   },
   {
-    name: 'BPCHOQUE',
-    battalion: 'Batalhão de Choque',
-    company: 'Companhia de Operações Especiais',
-    commander: 'Tenente-Coronel Rodrigues',
-    phone: '(85) 3101-4567',
-    ais: 'AIS-22',
+    name: '19º Batalhão de Polícia Militar',
+    battalion: 'CPC',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Júlio César Nogueira Mendonça',
+    phone: '(85) 3101-2790',
+    ais: 'AIS 10 - Conjunto Esperança',
+    subitems: [
+      { name: '1ª Companhia do 19º BPM', address: 'Av. Contorno Norte, s/n - Conjunto Esperança, Fortaleza-CE', phone: '(85) 3101-2791' },
+      { name: '2ª Companhia do 19º BPM', address: 'Av. Contorno Norte, s/n - Conjunto Esperança, Fortaleza-CE', phone: '(85) 3101-2792' }
+    ]
   },
   {
-    name: 'BPRAIO',
-    battalion: 'Batalhão RAIO',
-    company: 'Companhia de Motociclistas',
-    commander: 'Major Ferreira',
-    phone: '(85) 3101-5678',
-    ais: 'AIS-23',
+    name: '20º Batalhão de Polícia Militar',
+    battalion: 'CPC',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Francisco Márcio Oliveira Leite',
+    phone: '(85) 3101-2800',
+    ais: 'AIS 07 - Jangurussu',
+    subitems: [
+      { name: '1ª Companhia do 20º BPM', address: 'Av. Castelo de Castro, s/n - Jangurussu, Fortaleza-CE', phone: '(85) 3101-2801' },
+      { name: '2ª Companhia do 20º BPM', address: 'Av. Castelo de Castro, s/n - Jangurussu, Fortaleza-CE', phone: '(85) 3101-2802' }
+    ]
   },
+  {
+    name: '21º Batalhão de Polícia Militar',
+    battalion: 'CPC',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Adriano Mendes Carneiro',
+    phone: '(85) 3101-2810',
+    ais: 'AIS 03 - Papicu',
+    subitems: [
+      { name: '1ª Companhia do 21º BPM', address: 'Rua Pereira de Miranda, 1416 - Papicu, Fortaleza-CE', phone: '(85) 3101-2811' },
+      { name: '2ª Companhia do 21º BPM', address: 'Rua Pereira de Miranda, 1416 - Papicu, Fortaleza-CE', phone: '(85) 3101-2812' }
+    ]
+  },
+  {
+    name: '22º Batalhão de Polícia Militar',
+    battalion: 'CPC',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Iderval Moreno Madeira',
+    phone: '(85) 3101-2820',
+    ais: 'AIS 04 - Bom Jardim',
+    subitems: [
+      { name: '1ª Companhia do 22º BPM', address: 'Rua Oscar Araripe, 1020 - Bom Jardim, Fortaleza-CE', phone: '(85) 3101-2821' },
+      { name: '2ª Companhia do 22º BPM', address: 'Rua Oscar Araripe, 1020 - Bom Jardim, Fortaleza-CE', phone: '(85) 3101-2822' }
+    ]
+  },
+  
+  // COMANDO DE POLICIAMENTO DE RONDAS DE AÇÕES INTENSIVAS E OSTENSIVAS (CPRAIO)
+  {
+    name: 'Comando de Policiamento de Rondas de Ações Intensivas e Ostensivas (CPRAIO)',
+    battalion: 'Órgãos de Execução Operacional',
+    company: 'N/A',
+    commander: 'Coronel José Haroldo dos Santos Filho',
+    phone: '(85) 3101-3490',
+    ais: 'N/A',
+    subitems: [
+      { name: '1ª Companhia do RAIO', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-3491' },
+      { name: '2ª Companhia do RAIO', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-3492' },
+      { name: '3ª Companhia do RAIO', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-3493' }
+    ]
+  },
+  
+  // COMANDO DE POLICIAMENTO DE CHOQUE (CPChoque)
+  {
+    name: 'Comando de Policiamento de Choque (CPChoque)',
+    battalion: 'Órgãos de Execução Operacional',
+    company: 'N/A',
+    commander: 'Coronel Antônio Abelardo Rodrigues Lima',
+    phone: '(85) 3101-3400',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Batalhão de Choque', address: 'Av. Aguanambi, 1850 - Fátima, Fortaleza-CE', phone: '(85) 3101-3401' },
+      { name: 'Batalhão de Operações Policiais Especiais (BOPE)', address: 'Av. Aguanambi, 1850 - Fátima, Fortaleza-CE', phone: '(85) 3101-3402' },
+      { name: 'Batalhão de Polícia de Trânsito Urbano e Rodoviário Estadual (BPRE)', address: 'Av. Aguanambi, 1850 - Fátima, Fortaleza-CE', phone: '(85) 3101-3403' }
+    ]
+  },
+  
+  // COMANDO DE POLICIAMENTO DO INTERIOR (CPI)
+  {
+    name: 'Comando de Policiamento do Interior (CPI)',
+    battalion: 'Órgãos de Execução Operacional',
+    company: 'N/A',
+    commander: 'Coronel Flávio Alves Sabino',
+    phone: '(85) 3101-3500',
+    ais: 'N/A',
+    subitems: [
+      { name: 'Coordenadoria de Planejamento Operacional do Interior', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-3501' }
+    ]
+  },
+  {
+    name: '3º Batalhão de Polícia Militar',
+    battalion: 'CPI',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Francisco Márcio Silva de Mesquita',
+    phone: '(88) 3671-4700',
+    ais: 'Juazeiro do Norte',
+    subitems: [
+      { name: '1ª Companhia do 3º BPM', address: 'Rua Padre Cícero, s/n - São Miguel, Juazeiro do Norte-CE', phone: '(88) 3671-4701' },
+      { name: '2ª Companhia do 3º BPM', address: 'Rua Padre Cícero, s/n - São Miguel, Juazeiro do Norte-CE', phone: '(88) 3671-4702' }
+    ]
+  },
+  {
+    name: '4º Batalhão de Polícia Militar',
+    battalion: 'CPI',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Francilênio Moura Cavalcante',
+    phone: '(88) 3611-8300',
+    ais: 'Canindé',
+    subitems: [
+      { name: '1ª Companhia do 4º BPM', address: 'Rua Joaquim Magalhães, 960 - Centro, Canindé-CE', phone: '(88) 3611-8301' },
+      { name: '2ª Companhia do 4º BPM', address: 'Rua Joaquim Magalhães, 960 - Centro, Canindé-CE', phone: '(88) 3611-8302' }
+    ]
+  },
+  {
+    name: '7º Batalhão de Polícia Militar',
+    battalion: 'CPI',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Antônio Cristiano Pinto Nogueira',
+    phone: '(88) 3421-4700',
+    ais: 'Sobral',
+    subitems: [
+      { name: '1ª Companhia do 7º BPM', address: 'Av. John Sanford, 1505 - Junco, Sobral-CE', phone: '(88) 3421-4701' },
+      { name: '2ª Companhia do 7º BPM', address: 'Av. John Sanford, 1505 - Junco, Sobral-CE', phone: '(88) 3421-4702' }
+    ]
+  },
+  
+  // UNIDADES ESPECIALIZADAS
+  {
+    name: 'Batalhão de Polícia de Meio Ambiente (BPMA)',
+    battalion: 'Unidades Especializadas',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Wagner Góes Vidal',
+    phone: '(85) 3101-2220',
+    ais: 'N/A',
+    subitems: [
+      { name: '1ª Companhia do BPMA', address: 'Av. Washington Soares, 6280 - Messejana, Fortaleza-CE', phone: '(85) 3101-2221' },
+      { name: '2ª Companhia do BPMA', address: 'Av. Washington Soares, 6280 - Messejana, Fortaleza-CE', phone: '(85) 3101-2222' }
+    ]
+  },
+  {
+    name: 'Regimento de Polícia Montada (RPMont)',
+    battalion: 'Unidades Especializadas',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Francisco Eliton Alves Barbosa',
+    phone: '(85) 3101-4600',
+    ais: 'N/A',
+    subitems: [
+      { name: '1º Esquadrão do RPMont', address: 'Av. Godofredo Maciel, 2900 - Maraponga, Fortaleza-CE', phone: '(85) 3101-4601' },
+      { name: '2º Esquadrão do RPMont', address: 'Av. Godofredo Maciel, 2900 - Maraponga, Fortaleza-CE', phone: '(85) 3101-4602' }
+    ]
+  },
+  {
+    name: 'Batalhão de Segurança Patrimonial (BSP)',
+    battalion: 'Unidades Especializadas',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Marcos Aurélio Correia Lima',
+    phone: '(85) 3101-6200',
+    ais: 'N/A',
+    subitems: [
+      { name: '1ª Companhia do BSP', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-6201' },
+      { name: '2ª Companhia do BSP', address: 'Av. Aguanambi, 2280 - Fátima, Fortaleza-CE', phone: '(85) 3101-6202' }
+    ]
+  },
+  {
+    name: 'Batalhão de Policiamento Turístico (BPTur)',
+    battalion: 'Unidades Especializadas',
+    company: 'N/A',
+    commander: 'Tenente-Coronel Júlio César Lima de Menezes',
+    phone: '(85) 3101-2200',
+    ais: 'N/A',
+    subitems: [
+      { name: '1ª Companhia do BPTur', address: 'Av. Beira Mar, 4000 - Meireles, Fortaleza-CE', phone: '(85) 3101-2201' },
+      { name: '2ª Companhia do BPTur', address: 'Av. Beira Mar, 4000 - Meireles, Fortaleza-CE', phone: '(85) 3101-2202' }
+    ]
+  }
 ];
 
 const importPMCEStructure = async () => {
