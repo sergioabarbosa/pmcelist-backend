@@ -1,3 +1,4 @@
+// PROBLEMA: Usando decoded.id mas JWT pode ter _id
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 
@@ -18,8 +19,21 @@ const protect = async (req, res, next) => {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       console.log('Token decoded successfully:', decoded);
 
-      req.user = await User.findById(decoded.id).select('-password');
+      // CORREÇÃO: Usar decoded.id OU decoded._id
+      const userId = decoded.id || decoded._id;
+      req.user = await User.findById(userId).select('-password');
       console.log('User found:', req.user ? `ID: ${req.user._id}, Admin: ${req.user.isAdmin}` : 'No user found');
+
+      // ADICIONAL: Se não encontrou usuário no banco, usar dados do JWT
+      if (!req.user && decoded.isAdmin !== undefined) {
+        console.log('User not found in DB, using JWT data');
+        req.user = {
+          _id: userId,
+          email: decoded.email,
+          isAdmin: decoded.isAdmin,
+          role: decoded.role
+        };
+      }
 
       next();
     } catch (error) {
@@ -29,10 +43,6 @@ const protect = async (req, res, next) => {
     }
   } else {
     console.log('No Bearer token in authorization header');
-  }
-
-  if (!token) {
-    console.error('No token provided in request');
     res.status(401).json({ message: 'Not authorized, no token' });
   }
 };
