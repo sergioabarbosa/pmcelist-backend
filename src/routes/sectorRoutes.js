@@ -17,7 +17,7 @@ router.use((req, res, next) => {
 
 // Get all sectors and create new sector
 router.route('/')
-  .get(protect, getSectors)
+  .get(getSectors)
   .post(protect, admin, createSector);
 
 // Get, update and delete sector by ID
