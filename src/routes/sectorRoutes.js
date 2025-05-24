@@ -9,6 +9,12 @@ const {
 } = require('../controllers/sectorController');
 const { protect, admin } = require('../middleware/authMiddleware');
 
+// Log all requests to this router
+router.use((req, res, next) => {
+  console.log(`Sector route accessed: ${req.method} ${req.originalUrl}`);
+  next();
+});
+
 // Get all sectors and create new sector
 router.route('/')
   .get(protect, getSectors)
