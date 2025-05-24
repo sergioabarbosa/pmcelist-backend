@@ -8,44 +8,22 @@ const bcrypt = require('bcryptjs');
 const authUser = async (req, res) => {
   const { email, password } = req.body;
 
-  console.log(`Login attempt for email: ${email}`);
-  console.log(`Password received: ${password}`);
-
+  console.log('Login attempt for email:', email);
   const user = await User.findOne({ email });
 
-  if (user) {
-    console.log(`User found: ${user.name}, ID: ${user._id}`);
-    console.log(`Stored password hash: ${user.password}`);
-    
-    // Manual comparison for debugging
-    const manualCompare = await bcrypt.compare(password, user.password);
-    console.log(`Manual bcrypt comparison result: ${manualCompare}`);
-    
-    // Using the model method
-    const isMatch = await user.matchPassword(password);
-    console.log(`Model matchPassword result: ${isMatch}`);
-    
-    if (isMatch) {
-      res.json({
-        _id: user._id,
-        email: user.email,
-        isAdmin: user.isAdmin,
-        role: user.role,
-        token: token,
-        user: {
-          _id: user._id,
-          email: user.email,
-          isAdmin: user.isAdmin,
-          role: user.role
-        }
-      });
-      return;
-    }
-  } else {
-    console.log('No user found with this email');
-  }
+  if (user && (await user.matchPassword(password))) {
+    console.log('User authenticated:', user.name);
 
-  res.status(401).json({ message: 'Invalid email or password' });
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: generateToken(user),
+    });
+  } else {
+    res.status(401).json({ message: 'Email ou senha inválidos' });
+  }
 };
 
 // @desc    Register a new user
